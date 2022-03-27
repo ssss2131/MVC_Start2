@@ -1,0 +1,21 @@
+﻿
+<div class="text-center">
+        <input id="username" value="sa"/>
+        <input id="password" value="123456"/>
+        <label id="tip"></label>
+        <button onclick="login()">登录</button>
+ </div>
+<script>
+    function login() {
+        $.ajax({
+            type: "post",
+            url: "/LoginUser/Index",
+            async: false,
+            cache: false,
+            data: { username: $("#username").val(), password: $("#password").val()},//也可以传"&username=sa&password=123456"
+            success: function (result) {
+                $("#tip").html(result);
+            }
+        });
+    }
+</script>  });

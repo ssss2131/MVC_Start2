@@ -1,0 +1,16 @@
+﻿@model HomeDetailsViewModel
+
+ <div>title:@Model.PageTitle</div>
+    
+
+<div class="card" style="width: 50rem;">
+     @{string path = "~/images/"+Model.Student.PhotoPath;}
+    <img src=@path class="card-img-top" alt="..." asp-append-version="true">
+    <div class="card-body">
+    <h5 class="card-title">@Model.Student.Name</h5>
+    <p class="card-text">Name:@Model.Student.Name</p>
+    <p class="card-text">Id:@Model.Student.Id</p>
+    <p class="card-text">Email:@Model.Student.Email</p>
+    <p class="card-text">Major:@Model.Student.Major</p>
+    </div>
+</div> 

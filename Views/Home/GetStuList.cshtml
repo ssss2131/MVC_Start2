@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Student>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.title = "title";
+    
+}
+<h1> @ViewBag.title </h1>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+@foreach (var item in Model)
+    {
+        <div class="col">
+
+            <div class="card" style="width: 18rem;">
+                @{
+                    var path = "~/images/" + (item.PhotoPath ?? "test.jpg");
+                }
+      <img src="@path" class="card-img-top" alt="..." asp-append-version="true">
+      <div class="card-body">
+        <h5 class="card-title">@item.Name</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a asp-controller="Home" asp-action="Details" asp-route-id = "@item.Id" class="btn btn-primary m-1">详情</a>
+        <a asp-controller="Home" asp-action="Editor" asp-route-id = "@item.Id" class="btn btn-primary m-1">编辑</a>
+        <a asp-controller="Home" asp-action="Delete"  asp-route-id = "@item.Id" class="btn btn-primary m-1">删除</a>
+      </div>
+    </div> 
+    </div>
+}
+
+</div>
+
